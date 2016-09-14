@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="eleicoes-app">
     <head>
         <meta charset="utf-8">
-        <title>Gulp Boilerplate</title>
+        <title>Eleições Baixo Guandu 2016</title>
         <link rel="stylesheet" href="dist/css/style.min.css">
         <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
     </head>
-    <body>
-        <div class="container">
+    <body ng-controller="CandidatosCtrl as vm">
+        <div class="header">
             <div class="row">
-                <div class="jumbotron">
-                    <h1 class="text-center">Hello! :)</h1>
-                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Brasaobaixoguandu.png" alt="Brasão Baixo Guandu">
+                <h1>Eleições Baixo Guandu 2016</h1>
             </div>
         </div>
-        <script src="libs/jquery/dist/jquery.min.js"></script>
-        <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <div class="container">
+            <div class="row">
+                <p>{{ vm.hello }}</p>
+            </div>
+        </div>
+        <script src="libs/angular/angular.min.js"></script>
+        <script src="dist/js/main.min.js"></script>
     </body>
 </html>

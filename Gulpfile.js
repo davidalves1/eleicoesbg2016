@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var uglify = require('gulp-uglify');
-var sass = require('gulp-sass');
+var stylus = require('gulp-stylus');
 var watch = require('gulp-watch');
 var plumber = require('gulp-plumber');
 var cleanCss = require('gulp-clean-css');
@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 gulp.task('minjs', function() {
     return gulp
         // Define a origem dos arquivos .js
-        .src(['src/js/**/*'])
+        .src(['./src/js/**/*'])
         // Prevençãao de erros
         .pipe(plumber())
         // Realiza minificação
@@ -22,14 +22,14 @@ gulp.task('minjs', function() {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('sass', function() {
+gulp.task('stylus', function() {
     return gulp
-        // Define a origem dos arquivos .scss
-        .src('src/sass/**/*')
+        // Define a origem dos arquivos .styl
+        .src('./src/stylus/style.styl')
         // Prevençãao de erros
         .pipe(plumber())
         // Realiza o pré-processamento para css
-        .pipe(sass())
+        .pipe(stylus())
         // Realiza a minificação do css
         .pipe(cleanCss())
         // Altera a extenção do arquivo
@@ -41,7 +41,7 @@ gulp.task('sass', function() {
 gulp.task('watch', function() {
     gulp.start('default')
     gulp.watch('src/js/**/*.js', ['minjs'])
-    gulp.watch('src/sass/**/*.scss', ['sass'])
+    gulp.watch('src/stylus/**/*.styl', ['stylus'])
 });
 
-gulp.task('default', ['minjs', 'sass']);
+gulp.task('default', ['minjs', 'stylus']);
