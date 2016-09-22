@@ -17,7 +17,7 @@
             <div class="row">
                 <p>{{ vm.hello }}</p>
                 <div ng-repeat="candidato in vm.candidatos">
-                    <card-candidato></card-candidato>
+                    {{ candidato.nomeUrna }} - {{ candidato.numero }}
                 </div>
             </div>
         </div>
